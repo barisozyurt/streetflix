@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e50914"/>
+      <stop offset="100%" style="stop-color:#b8070f"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="128" height="128" rx="24" fill="url(#bg)"/>
+  <!-- Play triangle -->
+  <path d="M48 32 L48 96 L96 64 Z" fill="white"/>
+  <!-- Road lines suggesting street view -->
+  <rect x="52" y="58" width="8" height="12" fill="#e50914" rx="1"/>
+  <rect x="68" y="58" width="8" height="12" fill="#e50914" rx="1"/>
+</svg>

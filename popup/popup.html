@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreetFlix</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>🎬 StreetFlix</h1>
+      <span id="status-badge" class="badge badge-idle">Ready</span>
+    </header>
+
+    <!-- Status Message -->
+    <div id="status-message" class="status-message hidden">
+      <span id="status-text"></span>
+    </div>
+
+    <!-- Route Section -->
+    <section class="section">
+      <h2>📍 Route</h2>
+      <div class="button-group">
+        <button id="btn-set-start" class="btn btn-secondary">
+          <span class="btn-icon">🟢</span> Set Start
+        </button>
+        <button id="btn-set-end" class="btn btn-secondary">
+          <span class="btn-icon">🏁</span> Set End
+        </button>
+      </div>
+      <button id="btn-capture-route" class="btn btn-secondary btn-full">
+        🗺️ Capture Google Directions Route
+      </button>
+      <div id="route-info" class="info-box hidden">
+        <div class="info-row">
+          <span>Start:</span>
+          <span id="start-point">Not set</span>
+        </div>
+        <div class="info-row">
+          <span>End:</span>
+          <span id="end-point">Not set</span>
+        </div>
+        <div class="info-row">
+          <span>Waypoints:</span>
+          <span id="waypoint-count">0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speed Section -->
+    <section class="section">
+      <h2>⚡ Speed</h2>
+      <div class="speed-grid">
+        <button class="speed-btn" data-speed="walking">
+          <span class="speed-icon">🚶</span>
+          <span class="speed-label">Walk</span>
+        </button>
+        <button class="speed-btn active" data-speed="cycling">
+          <span class="speed-icon">🚴</span>
+          <span class="speed-label">Bike</span>
+        </button>
+        <button class="speed-btn" data-speed="driving">
+          <span class="speed-icon">🚗</span>
+          <span class="speed-label">Drive</span>
+        </button>
+        <button class="speed-btn" data-speed="flying">
+          <span class="speed-icon">✈️</span>
+          <span class="speed-label">Fly</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Playback Controls -->
+    <section class="section">
+      <h2>▶️ Playback</h2>
+      <div class="playback-controls">
+        <button id="btn-play" class="btn btn-primary btn-large">
+          ▶️ Play
+        </button>
+        <button id="btn-pause" class="btn btn-secondary btn-large" disabled>
+          ⏸️ Pause
+        </button>
+        <button id="btn-stop" class="btn btn-secondary btn-large" disabled>
+          ⏹️ Stop
+        </button>
+      </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="section">
+      <h2>📊 Progress</h2>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+        </div>
+        <span id="progress-text" class="progress-text">0%</span>
+      </div>
+    </section>
+
+    <!-- Settings Section -->
+    <section class="section section-collapsible">
+      <h2 class="section-toggle" id="settings-toggle">⚙️ Settings <span class="toggle-icon">▼</span></h2>
+      <div id="settings-content" class="section-content hidden">
+        <label class="setting-row">
+          <input type="checkbox" id="smooth-transitions" checked>
+          <span>Smooth transitions</span>
+        </label>
+        <label class="setting-row">
+          <span>Transition speed:</span>
+          <input type="range" id="transition-speed" min="100" max="1000" value="300" step="50">
+          <span id="transition-value">300ms</span>
+        </label>
+        <label class="setting-row">
+          <input type="checkbox" id="auto-heading" checked>
+          <span>Auto-adjust heading</span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>StreetFlix v0.1.0</span>
+      <a href="https://github.com/user/streetflix" target="_blank">GitHub</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+/**
+ * StreetFlix - Injected Overlay Styles
+ * Styles for floating UI and transitions
+ */
+
+/* Transition overlays */
+#streetflix-transition-overlay,
+#streetflix-image-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 99999 !important;
+}
+
+/* Floating control panel */
+#streetflix-controls {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+  user-select: none !important;
+}
+
+#streetflix-controls button {
+  transition: transform 0.15s ease, background-color 0.15s ease !important;
+}
+
+#streetflix-controls button:hover {
+  transform: scale(1.05) !important;
+}
+
+#streetflix-controls button:active {
+  transform: scale(0.95) !important;
+}
+
+/* Progress bar hover effect */
+#sf-progress-container {
+  cursor: pointer !important;
+  transition: height 0.15s ease !important;
+}
+
+#sf-progress-container:hover {
+  height: 10px !important;
+}
+
+/* Cinema mode - hide Google Maps UI */
+.streetflix-cinema-mode .widget-titlecard,
+.streetflix-cinema-mode .scene-footer,
+.streetflix-cinema-mode .app-viewcard-strip,
+.streetflix-cinema-mode [data-control-name],
+.streetflix-cinema-mode .watermark,
+.streetflix-cinema-mode .scene-action-bar,
+.streetflix-cinema-mode .widget-minimap {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.3s ease !important;
+}
+
+.streetflix-cinema-mode:hover .widget-titlecard,
+.streetflix-cinema-mode:hover .scene-footer,
+.streetflix-cinema-mode:hover [data-control-name] {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Playing indicator */
+@keyframes streetflix-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.streetflix-playing #streetflix-controls {
+  animation: streetflix-pulse 2s ease-in-out infinite;
+}
+
+/* Loading spinner */
+.streetflix-loading::after {
+  content: '';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid rgba(255,255,255,0.2);
+  border-top-color: #e50914;
+  border-radius: 50%;
+  animation: streetflix-spin 0.8s linear infinite;
+  z-index: 100000;
+}
+
+@keyframes streetflix-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Toast notifications */
+.streetflix-toast {
+  position: fixed !important;
+  bottom: 140px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: rgba(0, 0, 0, 0.85) !important;
+  color: white !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  z-index: 100001 !important;
+  animation: streetflix-toast-in 0.3s ease !important;
+}
+
+@keyframes streetflix-toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.streetflix-toast.fade-out {
+  animation: streetflix-toast-out 0.3s ease forwards !important;
+}
+
+@keyframes streetflix-toast-out {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+/* Keyboard shortcut hint */
+.streetflix-shortcut-hint {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  background: rgba(20, 20, 20, 0.9) !important;
+  color: #999 !important;
+  padding: 12px 16px !important;
+  border-radius: 8px !important;
+  font-size: 12px !important;
+  z-index: 100000 !important;
+  max-width: 200px !important;
+}
+
+.streetflix-shortcut-hint kbd {
+  background: #333 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-family: monospace !important;
+  margin: 0 2px !important;
+}
+
+/* Fullscreen styles */
+:fullscreen #streetflix-controls {
+  bottom: 40px !important;
+}
+
+:fullscreen .streetflix-cinema-mode .widget-titlecard,
+:fullscreen .streetflix-cinema-mode .scene-footer {
+  display: none !important;
+}
